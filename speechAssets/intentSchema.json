@@ -1,13 +1,22 @@
 {
   "intents": [
     {
+    "intent": "HomeIntent",
       "slots": [
         {
           "name": "Villager",
           "type": "LIST_OF_VILLAGERS"
         }
-      ],
-      "intent": "HomeIntent"
+      ]
+    },
+    {
+    "intent": "BirthdayIntent",
+      "slots": [
+        {
+          "name": "Villager",
+          "type": "LIST_OF_VILLAGERS"
+        }
+      ]
     },
     {
       "intent": "AMAZON.RepeatIntent"

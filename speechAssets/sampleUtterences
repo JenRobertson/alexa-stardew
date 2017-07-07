@@ -1,4 +1,8 @@
-HomeIntent where does {Villager} live?
-HomeIntent where is {Villager}'s house?
-HomeIntent where is {Villager}'s home?
-HomeIntent {Villager} lives where?
+HomeIntent where does {Villager} live
+HomeIntent where is {Villager} house
+HomeIntent where is {Villager} home
+HomeIntent {Villager} lives where
+BirthdayIntent when is {Villager} birthday
+BirthdayIntent what day is {Villager} birthday
+BirthdayIntent when was {Villager} born
+BirthdayIntent when was {Villager} born
