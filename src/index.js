@@ -28,11 +28,11 @@ const languageStrings = {
             STOP_MESSAGE: 'Goodbye!',
 
             HOMES: homes.HOMES_EN_GB,
-            HOME_REPEAT_MESSAGE: 'Try saying repeat.',
-            HOME_NOT_FOUND_MESSAGE: "I\'m sorry, I currently don\'t know ",
-            HOME_NOT_FOUND_WITH_ITEM_NAME: 'where %s lives',
-            HOME_NOT_FOUND_WITHOUT_ITEM_NAME: 'that villager',
-            HOME_NOT_FOUND_REPROMPT: '. What else can I help with?',
+            HOMES_REPEAT_MESSAGE: 'Try saying repeat.',
+            HOMES_NOT_FOUND_MESSAGE: "I\'m sorry, I currently don\'t know ",
+            HOMES_NOT_FOUND_WITH_ITEM_NAME: 'where %s lives',
+            HOMES_NOT_FOUND_WITHOUT_ITEM_NAME: 'that villager',
+            HOMES_NOT_FOUND_REPROMPT: '. What else can I help with?',
 
             BIRTHDAYS: birthdays.BIRTHDAYS_EN_GB,
             BIRTHDAYS_REPEAT_MESSAGE: 'Try saying repeat.',
@@ -71,13 +71,13 @@ const handlers = {
 
         if (home) {
             this.attributes.speechOutput = home;
-            this.attributes.repromptSpeech = this.t('HOME_REPEAT_MESSAGE');
+            this.attributes.repromptSpeech = this.t('HOMES_REPEAT_MESSAGE');
             this.emit(':askWithCard', home, this.attributes.repromptSpeech, cardTitle, home);
         } else {
-            let speechOutput = this.t('HOME_NOT_FOUND_MESSAGE');
-            const repromptSpeech = this.t('HOME_NOT_FOUND_REPROMPT');
+            let speechOutput = this.t('HOMES_NOT_FOUND_MESSAGE');
+            const repromptSpeech = this.t('HOMES_NOT_FOUND_REPROMPT');
             if (villagerName) {
-                speechOutput += this.t('HOME_NOT_FOUND_WITH_ITEM_NAME', villagerName);
+                speechOutput += this.t('HOMES_NOT_FOUND_WITH_ITEM_NAME', villagerName);
             } else {
                 speechOutput += this.t('HOME_NOT_FOUND_WITHOUT_ITEM_NAME');
             }
@@ -89,38 +89,38 @@ const handlers = {
             this.emit(':ask', speechOutput, repromptSpeech);
         }
     },
-     'BirthdayIntent': function () {
-        const villagerSlot = this.event.request.intent.slots.Villager;
-        let villagerName;
-        if (villagerSlot && villagerSlot.value) {
-            villagerName = villagerSlot.value.toLowerCase();
-        }
+    'BirthdayIntent': genericIntent('birthdays'),
+    //  'BirthdayIntent': function () {
+    //     const villagerSlot = this.event.request.intent.slots.Villager;
+    //     let villagerName;
+    //     if (villagerSlot && villagerSlot.value) {
+    //         villagerName = villagerSlot.value.toLowerCase();
+    //     }
 
-        const cardTitle = this.t('DISPLAY_CARD_TITLE', this.t('SKILL_NAME'), villagerName);
-        const birthdays = this.t('BIRTHDAYS');
-        const birthday = birthdays[villagerName];
+    //     const cardTitle = this.t('DISPLAY_CARD_TITLE', this.t('SKILL_NAME'), villagerName);
+    //     const birthdays = this.t('BIRTHDAYS');
+    //     const birthday = birthdays[villagerName];
 
-        if (birthday) {
-            this.attributes.speechOutput = birthday;
-            this.attributes.repromptSpeech = this.t('BIRTHDAYS_REPEAT_MESSAGE');
-            this.emit(':askWithCard', birthday, this.attributes.repromptSpeech, cardTitle, birthday);
-        } else {
-            let speechOutput = this.t('BIRTHDAYS_NOT_FOUND_MESSAGE');
-            const repromptSpeech = this.t('BIRTHDAYS_NOT_FOUND_REPROMPT');
-            if (villagerName) {
-                speechOutput += this.t('BIRTHDAYS_NOT_FOUND_WITH_ITEM_NAME', villagerName);
-            } else {
-                speechOutput += this.t('BIRTHDAYS_NOT_FOUND_WITHOUT_ITEM_NAME');
-            }
-            speechOutput += repromptSpeech;
+    //     if (birthday) {
+    //         this.attributes.speechOutput = birthday;
+    //         this.attributes.repromptSpeech = this.t('BIRTHDAYS_REPEAT_MESSAGE');
+    //         this.emit(':askWithCard', birthday, this.attributes.repromptSpeech, cardTitle, birthday);
+    //     } else {
+    //         let speechOutput = this.t('BIRTHDAYS_NOT_FOUND_MESSAGE');
+    //         const repromptSpeech = this.t('BIRTHDAYS_NOT_FOUND_REPROMPT');
+    //         if (villagerName) {
+    //             speechOutput += this.t('BIRTHDAYS_NOT_FOUND_WITH_ITEM_NAME', villagerName);
+    //         } else {
+    //             speechOutput += this.t('BIRTHDAYS_NOT_FOUND_WITHOUT_ITEM_NAME');
+    //         }
+    //         speechOutput += repromptSpeech;
 
-            this.attributes.speechOutput = speechOutput;
-            this.attributes.repromptSpeech = repromptSpeech;
+    //         this.attributes.speechOutput = speechOutput;
+    //         this.attributes.repromptSpeech = repromptSpeech;
 
-            this.emit(':ask', speechOutput, repromptSpeech);
-        }
-    },
-
+    //         this.emit(':ask', speechOutput, repromptSpeech);
+    //     }
+    // },
 
     'AMAZON.HelpIntent': function () {
         this.attributes.speechOutput = this.t('HELP_MESSAGE');
@@ -154,3 +154,39 @@ exports.handler = function (event, context) {
     alexa.registerHandlers(handlers);
     alexa.execute();
 };
+
+function genericIntent(responseFileName){
+    return function () {
+        const responseName = responseFileName.toUpperCase();
+
+        const villagerSlot = this.event.request.intent.slots.Villager;
+        let villagerName;
+        if (villagerSlot && villagerSlot.value) {
+            villagerName = villagerSlot.value.toLowerCase();
+        }
+
+        const cardTitle = this.t('DISPLAY_CARD_TITLE', this.t('SKILL_NAME'), villagerName);
+        const responses = this.t(responseName);
+        const response = responses[villagerName];
+
+        if (response) {
+            this.attributes.speechOutput = response;
+            this.attributes.repromptSpeech = this.t(`${responseName}_REPEAT_MESSAGE`);
+            this.emit(':askWithCard', response, this.attributes.repromptSpeech, cardTitle, response);
+        } else {
+            let speechOutput = this.t(`${responseName}_NOT_FOUND_MESSAGE`);
+            const repromptSpeech = this.t(`${responseName}_NOT_FOUND_REPROMPT`);
+            if (villagerName) {
+                speechOutput += this.t(`${responseName}_NOT_FOUND_WITH_ITEM_NAME`, villagerName);
+            } else {
+                speechOutput += this.t(`${responseName}_NOT_FOUND_WITHOUT_ITEM_NAME`);
+            }
+            speechOutput += repromptSpeech;
+
+            this.attributes.speechOutput = speechOutput;
+            this.attributes.repromptSpeech = repromptSpeech;
+
+            this.emit(':ask', speechOutput, repromptSpeech);
+        }
+    }
+}
