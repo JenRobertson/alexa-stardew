@@ -11,31 +11,32 @@
 'use strict';
 
 const Alexa = require('alexa-sdk');
-const recipes = require('./recipes');
+const homes = require('./reponses/homes');
+const birthdays = require('./reponses/birthdays');
 
 const APP_ID = 'amzn1.ask.skill.1a184836-9acf-46bd-9e7b-0b6b9cc730c3';
 
 const languageStrings = {
     'en': {
         translation: {
-            RECIPES: recipes.RECIPE_EN_GB,
-            SKILL_NAME: 'Ingredients',
-            WELCOME_MESSAGE: "Welcome to %s. You can ask a question like, what are the ingredients for apple crumble? ... Now, what can I help you with?",
+            HOMES: homes.HOMES_EN_GB,
+            SKILL_NAME: 'Stawdew Valley Helper',
+            WELCOME_MESSAGE: "Welcome to %s. You can ask a question like, where does Elliot live? ... Now, what can I help you with?",
             WELCOME_REPROMT: 'For instructions on what you can say, please say help me.',
             DISPLAY_CARD_TITLE: '%s  - Ingredients for %s.',
-            HELP_MESSAGE: "You can ask questions such as, what\'s the ingredients, or, you can say exit...Now, what can I help you with?",
-            HELP_REPROMT: "You can say things like, what\'s the ingredients, or you can say exit...Now, what can I help you with?",
+            HELP_MESSAGE: "You can ask questions such as, where does Elliot live, or, you can say exit...Now, what can I help you with?",
+            HELP_REPROMT: "You can say things like, where does Elliot live, or you can say exit...Now, what can I help you with?",
             STOP_MESSAGE: 'Goodbye!',
-            RECIPE_REPEAT_MESSAGE: 'Try saying repeat.',
-            RECIPE_NOT_FOUND_MESSAGE: "I\'m sorry, I currently do not know ",
-            RECIPE_NOT_FOUND_WITH_ITEM_NAME: 'the ingredients for %s. ',
-            RECIPE_NOT_FOUND_WITHOUT_ITEM_NAME: 'the ingredients for that. ',
-            RECIPE_NOT_FOUND_REPROMPT: 'What else can I help with?',
+            VILLAGER_REPEAT_MESSAGE: 'Try saying repeat.',
+            VILLAGER_NOT_FOUND_MESSAGE: "I\'m sorry, I currently do not know ",
+            VILLAGER_NOT_FOUND_WITH_ITEM_NAME: 'that about %s. ',
+            VILLAGER_NOT_FOUND_WITHOUT_ITEM_NAME: 'that villager ',
+            VILLAGER_NOT_FOUND_REPROMPT: 'What else can I help with?',
         },
     },
     'en-GB': {
         translation: {
-            RECIPES: recipes.RECIPE_EN_GB,
+            HOMES: homes.HOMES_EN_GB,
             SKILL_NAME: 'British Minecraft Helper',
         },
     }
@@ -49,28 +50,59 @@ const handlers = {
         this.attributes.repromptSpeech = this.t('WELCOME_REPROMT');
         this.emit(':ask', this.attributes.speechOutput, this.attributes.repromptSpeech);
     },
-    'IngredientsIntent': function () {
-        const itemSlot = this.event.request.intent.slots.Food;
+    'HomeIntent': function () {
+        const itemSlot = this.event.request.intent.slots.Villager;
         let itemName;
         if (itemSlot && itemSlot.value) {
             itemName = itemSlot.value.toLowerCase();
         }
 
         const cardTitle = this.t('DISPLAY_CARD_TITLE', this.t('SKILL_NAME'), itemName);
-        const myRecipes = this.t('RECIPES');
-        const recipe = myRecipes[itemName];
+        const villagersHomes = this.t('HOMES');
+        const villager = villagersHomes[itemName];
 
-        if (recipe) {
-            this.attributes.speechOutput = recipe;
-            this.attributes.repromptSpeech = this.t('RECIPE_REPEAT_MESSAGE');
-            this.emit(':askWithCard', recipe, this.attributes.repromptSpeech, cardTitle, recipe);
+        if (villager) {
+            this.attributes.speechOutput = villager;
+            this.attributes.repromptSpeech = this.t('VILLAGER_REPEAT_MESSAGE');
+            this.emit(':askWithCard', villager, this.attributes.repromptSpeech, cardTitle, villager);
         } else {
-            let speechOutput = this.t('RECIPE_NOT_FOUND_MESSAGE');
-            const repromptSpeech = this.t('RECIPE_NOT_FOUND_REPROMPT');
+            let speechOutput = this.t('VILLAGER_NOT_FOUND_MESSAGE');
+            const repromptSpeech = this.t('VILLAGER_NOT_FOUND_REPROMPT');
             if (itemName) {
-                speechOutput += this.t('RECIPE_NOT_FOUND_WITH_ITEM_NAME', itemName);
+                speechOutput += this.t('VILLAGER_NOT_FOUND_WITH_ITEM_NAME', itemName);
             } else {
-                speechOutput += this.t('RECIPE_NOT_FOUND_WITHOUT_ITEM_NAME');
+                speechOutput += this.t('VILLAGER_NOT_FOUND_WITHOUT_ITEM_NAME');
+            }
+            speechOutput += repromptSpeech;
+
+            this.attributes.speechOutput = speechOutput;
+            this.attributes.repromptSpeech = repromptSpeech;
+
+            this.emit(':ask', speechOutput, repromptSpeech);
+        }
+    },
+    'BirthdayIntent': function () {
+        const itemSlot = this.event.request.intent.slots.Villager;
+        let itemName;
+        if (itemSlot && itemSlot.value) {
+            itemName = itemSlot.value.toLowerCase();
+        }
+
+        const cardTitle = this.t('DISPLAY_CARD_TITLE', this.t('SKILL_NAME'), itemName);
+        const villagersHomes = this.t('HOMES');
+        const villager = villagersHomes[itemName];
+
+        if (villager) {
+            this.attributes.speechOutput = villager;
+            this.attributes.repromptSpeech = this.t('VILLAGER_REPEAT_MESSAGE');
+            this.emit(':askWithCard', villager, this.attributes.repromptSpeech, cardTitle, villager);
+        } else {
+            let speechOutput = this.t('VILLAGER_NOT_FOUND_MESSAGE');
+            const repromptSpeech = this.t('VILLAGER_NOT_FOUND_REPROMPT');
+            if (itemName) {
+                speechOutput += this.t('VILLAGER_NOT_FOUND_WITH_ITEM_NAME', itemName);
+            } else {
+                speechOutput += this.t('VILLAGER_NOT_FOUND_WITHOUT_ITEM_NAME');
             }
             speechOutput += repromptSpeech;
 
