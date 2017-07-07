@@ -6,3 +6,15 @@ BirthdayIntent when is {Villager} birthday
 BirthdayIntent what day is {Villager} birthday
 BirthdayIntent when was {Villager} born
 BirthdayIntent when was {Villager} born
+BirthdayIntent when was {Villager} born
+LoveIntent what does {Villager} love
+LoveIntent what things do {Villager} love
+LoveIntent what things does {Villager} love
+LoveIntent which things do {Villager} love
+LoveIntent which items do {Villager} love
+LoveIntent which items does {Villager} love
+LoveIntent what shall I get {Villager} for their birthday
+LoveIntent what would {Villager} love for their birthday
+LoveIntent what items would {Villager} love for their birthday
+LoveIntent what shall I give {Villager}
+LoveIntent what would {Villager} love
