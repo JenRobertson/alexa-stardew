@@ -1,4 +1,5 @@
 HomeIntent where does {Villager} live
+HomeIntent where {Villager} lives
 HomeIntent where is {Villager} house
 HomeIntent where is {Villager} home
 HomeIntent {Villager} lives where
@@ -7,7 +8,9 @@ BirthdayIntent what day is {Villager} birthday
 BirthdayIntent when was {Villager} born
 BirthdayIntent when was {Villager} born
 BirthdayIntent when was {Villager} born
-LoveIntent what does {Villager} love
+BirthdayIntent when {Villager} birthday is
+LoveIntent what does {Villager} loves
+LoveIntent what {Villager} love
 LoveIntent what things do {Villager} love
 LoveIntent what things does {Villager} love
 LoveIntent which things do {Villager} love
@@ -18,3 +21,10 @@ LoveIntent what would {Villager} love for their birthday
 LoveIntent what items would {Villager} love for their birthday
 LoveIntent what shall I give {Villager}
 LoveIntent what would {Villager} love
+LoveIntent what {Villager} favourite item is
+MarriageIntent can I marry {Villager}
+MarriageIntent is it possible to marry {Villager}
+MarriageIntent if I can marry {Villager}
+MarriageIntent can I marry the {Villager}
+MarriageIntent is it possible to marry the {Villager}
+MarriageIntent if I can marry the {Villager}

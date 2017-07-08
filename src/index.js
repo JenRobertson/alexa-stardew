@@ -14,7 +14,7 @@ const Alexa = require('alexa-sdk');
 const homes = require('./responses/homes');
 const birthdays = require('./responses/birthdays');
 const loves = require('./responses/loves');
-
+const marriages = require('./responses/marriages');
 
 const APP_ID = 'amzn1.ask.skill.1a184836-9acf-46bd-9e7b-0b6b9cc730c3';
 
@@ -39,16 +39,23 @@ const languageStrings = {
             BIRTHDAYS: birthdays.BIRTHDAYS_EN_GB,
             BIRTHDAYS_REPEAT_MESSAGE: 'Try saying repeat.',
             BIRTHDAYS_NOT_FOUND_MESSAGE: "I\'m sorry, I currently don\'t know ",
-            BIRTHDAYS_NOT_FOUND_WITH_ITEM_NAME: ' %s\ birthday',
+            BIRTHDAYS_NOT_FOUND_WITH_ITEM_NAME: '%s\ birthday',
             BIRTHDAYS_NOT_FOUND_WITHOUT_ITEM_NAME: 'that villager',
             BIRTHDAYS_NOT_FOUND_REPROMPT: '. What else can I help with?',
 
             LOVES: loves.LOVES_EN_GB,
             LOVES_REPEAT_MESSAGE: 'Try saying repeat.',
             LOVES_NOT_FOUND_MESSAGE: "I\'m sorry, I currently don\'t know ",
-            LOVES_NOT_FOUND_WITH_ITEM_NAME: ' %s\ birthday',
+            LOVES_NOT_FOUND_WITH_ITEM_NAME: '%s\ birthday',
             LOVES_NOT_FOUND_WITHOUT_ITEM_NAME: 'that villager',
             LOVES_NOT_FOUND_REPROMPT: '. What else can I help with?',
+
+            MARRIAGES: marriages.MARRIAGES_EN_GB,
+            MARRIAGES_REPEAT_MESSAGE: 'Try saying repeat.',
+            MARRIAGES_NOT_FOUND_MESSAGE: "I\'m sorry, I currently don\'t know ",
+            MARRIAGES_NOT_FOUND_WITH_ITEM_NAME: '%s\ birthday',
+            MARRIAGES_NOT_FOUND_WITHOUT_ITEM_NAME: 'that villager',
+            MARRIAGES_NOT_FOUND_REPROMPT: '. What else can I help with?'
         },
     },
     'en-GB': {
@@ -72,6 +79,8 @@ const handlers = {
     'BirthdayIntent': genericIntent('birthdays'),
 
     'LoveIntent': genericIntent('loves'),
+
+    'MarriageIntent': genericIntent('marriages'),
 
     'AMAZON.HelpIntent': function () {
         this.attributes.speechOutput = this.t('HELP_MESSAGE');

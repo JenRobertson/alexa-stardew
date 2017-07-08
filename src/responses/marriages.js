@@ -1,0 +1,48 @@
+/* eslint-disable  func-names */
+/* eslint-disable max-len */
+/* eslint quote-props: ['error', 'consistent']*/
+module.exports = {
+    'MARRIAGES_EN_GB': {
+        'alex': 'Yes you can marry them.',
+        'elliott': 'Yes you can marry them.',
+        'harvey': 'Yes you can marry them.',
+        'sam': 'Yes you can marry them.',
+        'sebastian': 'Yes you can marry them.',
+        'shane': 'Yes you can marry them.',
+        'abigail': 'Yes you can marry them.',
+        'emily': 'Yes you can marry them.',
+        'haley': 'Yes you can marry them.',
+        'leah': 'Yes you can marry them.',
+        'maru': 'Yes you can marry them.',
+        'penny': 'Yes you can marry them.',
+        'caroline': 'No, you can\'t marry them.',
+        'clint': 'No, you can\'t marry them.',
+        'demetrius': 'No, you can\'t marry them.',
+        'evelyn': 'No, you can\'t marry them.',
+        'george': 'No, you can\'t marry them.',
+        'gus': 'No, you can\'t marry them.',
+        'jas': 'No, you can\'t marry them.',
+        'jodi': 'No, you can\'t marry them.',
+        'kent': 'No, you can\'t marry them.',
+        'lewis': 'No, you can\'t marry them.',
+        'linus': 'No, you can\'t marry them.',
+        'marlon': 'No, you can\'t marry them.',
+        'marnie': 'No, you can\'t marry them.',
+        'morris': 'No, you can\'t marry them.',
+        'pam': 'No, you can\'t marry them.',
+        'pierre': 'No, you can\'t marry them.',
+        'pobin': 'No, you can\'t marry them.',
+        'vincent': 'No, you can\'t marry them.',
+        'willy': 'No, you can\'t marry them.',
+        'bouncer': 'No, you can\'t marry them.',
+        'dwarf': 'No, you can\'t marry them.',
+        'governor': 'No, you can\'t marry them.',
+        'grandpa': 'No, you can\'t marry them.',
+        'henchman': 'No, you can\'t marry them.',
+        'junimos': 'No, you can\'t marry them.',
+        'krobus': 'No, you can\'t marry them.',
+        'mr. Qi': 'No, you can\'t marry them.',
+        'sandy': 'No, you can\'t marry them.',
+        'wizard': 'No, you can\'t marry them.'
+    }
+};
