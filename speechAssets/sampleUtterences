@@ -17,14 +17,43 @@ LoveIntent which things do {Villager} love
 LoveIntent which items do {Villager} love
 LoveIntent which items does {Villager} love
 LoveIntent what shall I get {Villager} for their birthday
+LoveIntent what shall I get {Villager} for his birthday
+LoveIntent what shall I get {Villager} for her birthday
 LoveIntent what would {Villager} love for their birthday
+LoveIntent what would {Villager} love for his birthday
+LoveIntent what would {Villager} love for her birthday
+LoveIntent what shall I get {Villager} for their birthday
+LoveIntent what shall I get {Villager} for his birthday
+LoveIntent what shall I get {Villager} for her birthday
+LoveIntent what would {Villager} love for their birthday
+LoveIntent what would {Villager} love for his birthday
+LoveIntent what would {Villager} love for her birthday
+LoveIntent what I should get {Villager} for their birthday
+LoveIntent what I should get {Villager} for her birthday
+LoveIntent what I should get {Villager} for his birthday
 LoveIntent what items would {Villager} love for their birthday
+LoveIntent what items would {Villager} love for her birthday
+LoveIntent what items would {Villager} love for his birthday
+LoveIntent what items would {Villager} like for their birthday
+LoveIntent what items would {Villager} like for her birthday
+LoveIntent what items would {Villager} like for his birthday
 LoveIntent what shall I give {Villager}
 LoveIntent what would {Villager} love
 LoveIntent what {Villager} favourite item is
+LoveIntent what are the {Villager} loves
+LoveIntent what the {Villager} are
 MarriageIntent can I marry {Villager}
 MarriageIntent is it possible to marry {Villager}
 MarriageIntent if I can marry {Villager}
 MarriageIntent can I marry the {Villager}
 MarriageIntent is it possible to marry the {Villager}
 MarriageIntent if I can marry the {Villager}
+HateIntent what does {Villager} hate
+HateIntent what {Villager} hates
+HateIntent what items does {Villager} hates
+HateIntent which items does {Villager} hates
+HateIntent what items do {Villager} hates
+HateIntent which items do {Villager} hates
+HateIntent which things does {Villager} hate
+HateIntent what are the {Villager} hates
+HateIntent what the {Villager} are

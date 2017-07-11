@@ -14,6 +14,7 @@ const Alexa = require('alexa-sdk');
 const homes = require('./responses/homes');
 const birthdays = require('./responses/birthdays');
 const loves = require('./responses/loves');
+const hates = require('./responses/hates');
 const marriages = require('./responses/marriages');
 
 const APP_ID = 'amzn1.ask.skill.1a184836-9acf-46bd-9e7b-0b6b9cc730c3';
@@ -22,10 +23,10 @@ const languageStrings = {
     'en': {
         translation: {
             SKILL_NAME: 'Stawdew Valley Helper',
-            WELCOME_MESSAGE: "Welcome to %s. You can ask a question like, where does Elliot live? ... Now, what can I help you with?",
+            WELCOME_MESSAGE: "Welcome to %s. You can ask a question like, where does Elliot live? or 'What does Alex love?'... Now, what can I help you with?",
             WELCOME_REPROMT: 'For instructions on what you can say, please say help me.',
             DISPLAY_CARD_TITLE: '%s  - Info about %s.',
-            HELP_MESSAGE: "You can ask questions such as, where does Elliot live, or, you can say exit...Now, what can I help you with?",
+            HELP_MESSAGE: "You can ask questions such as, where does Elliot live, or 'What does Alex love?' or, you can say exit...Now, what can I help you with?",
             HELP_REPROMT: "You can say things like, where does Elliot live, or you can say exit...Now, what can I help you with?",
             STOP_MESSAGE: 'Goodbye!',
 
@@ -46,22 +47,23 @@ const languageStrings = {
             LOVES: loves.LOVES_EN_GB,
             LOVES_REPEAT_MESSAGE: 'Try saying repeat.',
             LOVES_NOT_FOUND_MESSAGE: "I\'m sorry, I currently don\'t know ",
-            LOVES_NOT_FOUND_WITH_ITEM_NAME: '%s\ birthday',
-            LOVES_NOT_FOUND_WITHOUT_ITEM_NAME: 'that villager',
+            LOVES_NOT_FOUND_WITH_ITEM_NAME: 'what %s loves.',
+            LOVES_NOT_FOUND_WITHOUT_ITEM_NAME: 'what that villager loves.',
             LOVES_NOT_FOUND_REPROMPT: '. What else can I help with?',
+
+            HATES: hates.HATES_EN_GB,
+            HATES_REPEAT_MESSAGE: 'Try saying repeat.',
+            HATES_NOT_FOUND_MESSAGE: "I\'m sorry, I currently don\'t know ",
+            HATES_NOT_FOUND_WITH_ITEM_NAME: 'what %s hates.',
+            HATES_NOT_FOUND_WITHOUT_ITEM_NAME: 'what that villager hates.',
+            HATES_NOT_FOUND_REPROMPT: '. What else can I help with?',
 
             MARRIAGES: marriages.MARRIAGES_EN_GB,
             MARRIAGES_REPEAT_MESSAGE: 'Try saying repeat.',
-            MARRIAGES_NOT_FOUND_MESSAGE: "I\'m sorry, I currently don\'t know ",
-            MARRIAGES_NOT_FOUND_WITH_ITEM_NAME: '%s\ birthday',
+            MARRIAGES_NOT_FOUND_MESSAGE: "I\'m sorry, I currently don\'t know if you can marry",
+            MARRIAGES_NOT_FOUND_WITH_ITEM_NAME: '%s',
             MARRIAGES_NOT_FOUND_WITHOUT_ITEM_NAME: 'that villager',
             MARRIAGES_NOT_FOUND_REPROMPT: '. What else can I help with?'
-        },
-    },
-    'en-GB': {
-        translation: {
-            HOMES: homes.HOMES_EN_GB,
-            SKILL_NAME: 'British Stardew Valley Helper',
         },
     }
 };
@@ -79,6 +81,8 @@ const handlers = {
     'BirthdayIntent': genericIntent('birthdays'),
 
     'LoveIntent': genericIntent('loves'),
+
+    'HateIntent': genericIntent('hates'),
 
     'MarriageIntent': genericIntent('marriages'),
 

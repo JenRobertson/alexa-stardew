@@ -31,7 +31,7 @@ module.exports = {
         'morris': 'No, you can\'t marry them.',
         'pam': 'No, you can\'t marry them.',
         'pierre': 'No, you can\'t marry them.',
-        'pobin': 'No, you can\'t marry them.',
+        'robin': 'No, you can\'t marry them.',
         'vincent': 'No, you can\'t marry them.',
         'willy': 'No, you can\'t marry them.',
         'bouncer': 'No, you can\'t marry them.',

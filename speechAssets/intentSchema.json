@@ -37,6 +37,15 @@
       ]
     },
     {
+    "intent": "HateIntent",
+      "slots": [
+        {
+          "name": "Villager",
+          "type": "LIST_OF_VILLAGERS"
+        }
+      ]
+    },
+    {
       "intent": "AMAZON.RepeatIntent"
     },
     {

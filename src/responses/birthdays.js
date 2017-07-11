@@ -35,7 +35,7 @@ module.exports = {
         'dwarf': 'Dwarf\'s birthday is Summer 22',
         'krobus': 'Krobus\'s birthday is Winter 1',
         'sandy': 'Sandy\'s birthday is Fall 15',
-        'Wizard': 'Wizard\'s birthday is Winter 17',
+        'wizard': 'Wizard\'s birthday is Winter 17',
 
         'alex\'s': 'Alex\'s birthday is Summer 13',
         'elliott\'s': 'Elliot\'s birthday is Fall 5',
@@ -69,7 +69,7 @@ module.exports = {
         'dwarf\'s': 'Dwarf\'s birthday is Summer 22',
         'krobus\'s': 'Krobus\'s birthday is Winter 1',
         'sandy\'s': 'Sandy\'s birthday is Fall 15',
-        'Wizard\'s': 'Wizard\'s birthday is Winter 17',
+        'wizard\'s': 'Wizard\'s birthday is Winter 17',
 
         'alexs': 'Alex\'s birthday is Summer 13',
         'elliotts': 'Elliot\'s birthday is Fall 5',
@@ -103,6 +103,6 @@ module.exports = {
         'dwarfs': 'Dwarf\'s birthday is Summer 22',
         'krobuss': 'Krobus\'s birthday is Winter 1',
         'sandys': 'Sandy\'s birthday is Fall 15',
-        'Wizards': 'Wizard\'s birthday is Winter 17'
+        'wizards': 'Wizard\'s birthday is Winter 17'
     }
 };
