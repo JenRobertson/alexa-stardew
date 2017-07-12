@@ -136,7 +136,8 @@ function genericIntent(responseFileName){
         if (response) {
             this.attributes.speechOutput = response;
             this.attributes.repromptSpeech = this.t(`${responseName}_REPEAT_MESSAGE`);
-            this.emit(':tellWithCard', response, this.attributes.repromptSpeech, cardTitle, response);
+            //this.emit(':tellWithCard', response, this.attributes.repromptSpeech, cardTitle, response);
+            this.emit(':tellWithCard', response, cardTitle, response);
         } else {
             let speechOutput = this.t(`${responseName}_NOT_FOUND_MESSAGE`);
             const repromptSpeech = this.t(`${responseName}_NOT_FOUND_REPROMPT`);
